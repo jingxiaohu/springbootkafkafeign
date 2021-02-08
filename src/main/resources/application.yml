@@ -1,0 +1,29 @@
+
+server:
+  servlet:
+    context-path: /
+  port: 80
+
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: 10.39.1.144:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    consumer:
+      bootstrap-servers: 10.39.1.144:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: test-consumer-group
+      enable-auto-commit: true
+
+  data:
+    mongodb:
+      uri: mongodb://jxh:123456@10.39.1.126:27017/admin
+  application:
+    name: producer-service
+
+#feign:
+#  hystrix:
+#    enabled: true
